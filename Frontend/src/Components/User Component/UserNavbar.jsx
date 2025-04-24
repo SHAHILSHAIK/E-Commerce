@@ -125,7 +125,7 @@ export default function UserNavbar() {
       {/* Mobile Navigation Menu */}
       {menuOpen && (
         <ul className="md:hidden flex flex-col items-center gap-4 pb-4 text-lg bg-blue-700 w-full">
-          <Link to="/" onClick={() => setMenuOpen(false)}>
+          <Link to="/Home" onClick={() => setMenuOpen(false)}>
             <li className="cursor-pointer hover:text-orange-400 transition duration-200">
               Home
             </li>
@@ -160,38 +160,38 @@ export default function UserNavbar() {
               <ul className="w-full text-center mt-2 bg-blue-800 rounded-md">
                 <li>
                   <Link
-                    to="/UserLogin"
+                    to="/profile"
                     className="block px-4 py-2 hover:bg-blue-600"
                     onClick={() => {
                       setMobileAccountOpen(false);
                       setMenuOpen(false);
                     }}
                   >
-                    Login
+                    Profile
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/UserSignUp"
+                    to="/orders"
                     className="block px-4 py-2 hover:bg-blue-600"
                     onClick={() => {
                       setMobileAccountOpen(false);
                       setMenuOpen(false);
                     }}
                   >
-                    Sign Up
+                    Orders
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/AdminLanding"
+                    to="/"
                     className="block px-4 py-2 hover:bg-blue-600"
                     onClick={() => {
                       setMobileAccountOpen(false);
                       setMenuOpen(false);
                     }}
                   >
-                    Admin Panel
+                    Logout
                   </Link>
                 </li>
               </ul>

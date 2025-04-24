@@ -4,20 +4,23 @@ import UserLogin from "./Components/User Component/UserLogin";
 
 function Landing() {
   return (
-    <div className="flex justify-center align-bottom items-center w-full h-screen bg-blue-50 ">
-      <div className="bg-white flex p-6 rounded-lg">
-        {/* Admin Login Component */}
-        <div className="w-full max-w-md ">
-          <AdminLogin />
-          
+    <div className="flex justify-center items-center min-h-screen bg-blue-50 p-4">
+      <div className="bg-white flex flex-col md:flex-row w-full max-w-6xl rounded-xl shadow-xl overflow-hidden">
+        {/* Admin Login Section */}
+        <div className="w-full md:w-1/2 p-6 flex items-center justify-center">
+          <div className="w-full max-w-sm">
+            <AdminLogin />
+          </div>
         </div>
 
-        {/* Vertical Divider */}
-        <div className="w-px bg-gray-400 h-auto mx-6" />
+        {/* Divider */}
+        <div className="hidden md:block w-px bg-gray-300" />
 
-        {/* User Login Component */}
-        <div className="w-full max-w-md  ">
-          <UserLogin />
+        {/* User Login Section */}
+        <div className="w-full md:w-1/2 p-6 flex items-center justify-center border-t md:border-t-0 md:border-l border-gray-200">
+          <div className="w-full max-w-sm">
+            <UserLogin />
+          </div>
         </div>
       </div>
     </div>

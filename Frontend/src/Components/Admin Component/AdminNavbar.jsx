@@ -27,27 +27,9 @@ export default function AdminNavbar() {
             />
           </Link>
         </div>
-        {/* <div className="flex justify-center py-3 px-4">
-          <div className="flex items-center w-full max-w-3xl bg-white border border-gray-300 rounded-full px-5 py-1.5 shadow-md">
-            <BiSearch className="text-lg text-gray-500 mr-2" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full outline-none text-black text-sm py-1"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button
-              onClick={handleSearch}
-              className="bg-blue-600 text-white px-3 py-1 rounded-full ml-2 hover:bg-blue-700 transition"
-            >
-              Search
-            </button>
-          </div>
-        </div> */}
 
-        {/* Navigation Links (Desktop) */}
-        <ul className="hidden md:flex items-center gap-6 sm:gap-10 text-sm sm:text-lg">
+        {/* Centered Navbar Links */}
+        <ul className="hidden md:flex items-center gap-6 sm:gap-10 text-sm sm:text-lg mx-auto">
           <Link to="/AdminHome/">
             <li className="relative group cursor-pointer hover:text-orange-500 transition duration-200 ease-in-out">
               Home
@@ -66,12 +48,14 @@ export default function AdminNavbar() {
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </li>
           </Link>
-          <Link to="/">
-            <li className="cursor-pointer hover:text-red-500 transition duration-200 ease-in-out flex items-center">
-              <IoMdLogOut size={30} />
-            </li>
-          </Link>
         </ul>
+
+        {/* Desktop Logout Icon */}
+        <Link to="/" className="hidden md:flex">
+          <li className="cursor-pointer hover:text-red-500 transition duration-200 ease-in-out flex items-center">
+            <IoMdLogOut size={30} />
+          </li>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
