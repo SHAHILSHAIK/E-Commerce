@@ -18,7 +18,7 @@ function AdminLogin() {
 
   function GetData() {
     axios
-      .post("http://localhost:3005/api/admin/login", AdminData)
+      .post("https://e-commerce-5a5i.onrender.com/api/admin/login", AdminData)
       .then((res) => {
         console.log(res.data);
         toast.success(res.data.message);
