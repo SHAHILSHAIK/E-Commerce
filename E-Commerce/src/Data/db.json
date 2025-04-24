@@ -1,0 +1,78 @@
+{
+  "Admin": [
+    {
+      "id": "8b21",
+      "Adname": "Shahil Shaik",
+      "Ademail": "shahisha1029@gmail.com",
+      "Adpassword": "s",
+      "Adphone": "7799326294",
+      "Adimage": {}
+    }
+  ],
+  "User": [
+    {
+      "id": "196b",
+      "name": "SHAHIL SHAIK",
+      "email": "shahisha1029@gmail.com",
+      "password": "s"
+    }
+  ],
+  "Products": [
+    {
+      "id": "4294",
+      "category": "Women's",
+      "name": "Women's Summer Dress",
+      "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500",
+      "description": "Floral print maxi dress",
+      "price": "550"
+    },
+    {
+      "id": "d98f",
+      "category": "Electronics",
+      "name": "Wireless Headphones",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+      "description": "Premium sound quality",
+      "price": "1500"
+    },
+    {
+      "id": "0a5c",
+      "category": "Men's",
+      "name": "Men's Denim Jacket",
+      "image": "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=500",
+      "description": "Classic denim style",
+      "price": "700"
+    },
+    {
+      "id": "54be",
+      "category": "Electronics",
+      "name": "Smart Watch",
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500",
+      "description": "Fitness and health tracking",
+      "price": "1500"
+    },
+    {
+      "id": "a88c",
+      "category": "Men's",
+      "name": "Men's Running Shoes",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+      "description": "Lightweight performance shoes",
+      "price": "1100"
+    },
+    {
+      "id": "473f",
+      "category": "Women's",
+      "name": "Women's Cardigan",
+      "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500",
+      "description": "Soft knit sweater",
+      "price": "600"
+    },
+    {
+      "id": "badf",
+      "category": "Kid's",
+      "name": "Kids' Denim Overalls",
+      "image": "https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=500",
+      "description": "Cute and durable overalls",
+      "price": "299"
+    }
+  ]
+}
