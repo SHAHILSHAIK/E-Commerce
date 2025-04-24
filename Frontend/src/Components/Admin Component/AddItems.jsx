@@ -17,7 +17,7 @@ export default function ProductForm() {
     e.preventDefault()
     // Prevent default form submission
     axios
-      .post("http://localhost:3005/api/products", data)
+      .post("https://e-commerce-5a5i.onrender.com/api/products", data)
       .then((res) => {
         toast.success("Data Posted Successfully", {
           position: "top-center",
