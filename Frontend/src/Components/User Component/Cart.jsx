@@ -14,9 +14,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-
- 
   const discounts = {
     "Men's": 20,
     "Women's": 25,
@@ -25,13 +22,11 @@ const Cart = () => {
     Furniture: 35,
   };
 
-  
   const getDiscountedPrice = (price, category) => {
     const discount = discounts[category] || 0;
     return price - (price * discount) / 100;
   };
 
- 
   const subtotal = cart.reduce(
     (total, item) =>
       total + getDiscountedPrice(item.price, item.category) * item.quantity,
@@ -60,12 +55,12 @@ const Cart = () => {
               ) : (
                 <>
                   {cart.map((item) => {
-                    const discount = discounts[item.category] || 0; 
+                    const discount = discounts[item.category] || 0;
                     const discountedPrice = getDiscountedPrice(
                       item.price,
                       item.category
                     );
-                    const savings = item.price - discountedPrice; 
+                    const savings = item.price - discountedPrice;
                     return (
                       <div
                         key={item._id}
@@ -148,7 +143,6 @@ const Cart = () => {
             </div>
           </div>
 
-         
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
@@ -171,7 +165,7 @@ const Cart = () => {
                 </div>
               </div>
               <button
-                onClick={cart.length=== 0 ? null:() => navigate("/Address")}
+                onClick={cart.length === 0 ? null : () => navigate("/Address")}
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded"
               >
                 Place Order
@@ -179,7 +173,7 @@ const Cart = () => {
 
               <div className="text-center mt-4">
                 <button
-                  onClick={() => navigate("/Home")}
+                  onClick={() => navigate("/")}
                   className="text-blue-600 hover:underline"
                 >
                   Continue Shopping
