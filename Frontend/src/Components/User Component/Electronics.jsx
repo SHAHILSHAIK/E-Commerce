@@ -4,7 +4,7 @@ import { addToCart } from "../redux/cartSlice";
 import UserNavbar from "./UserNavbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaFilter, FaTimes } from "react-icons/fa"; // Import icons
+import { FaFilter, FaTimes } from "react-icons/fa"; 
 
 function Electronics() {
   const [products, setProducts] = useState([]);
@@ -20,7 +20,7 @@ function Electronics() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         const electronicsProducts = res.data.filter(
           (product) => product.category === "Electronics"
@@ -30,7 +30,7 @@ function Electronics() {
       .catch((err) => console.log(err));
   }, []);
 
-  // Filter Logic
+ 
   const filteredProducts = products.filter(
     (product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -38,7 +38,7 @@ function Electronics() {
       (category === "All" || product.subcategory === category)
   );
 
-  // Sorting Logic
+ 
   if (sortOrder === "lowToHigh") {
     filteredProducts.sort((a, b) => a.price - b.price);
   } else if (sortOrder === "highToLow") {
