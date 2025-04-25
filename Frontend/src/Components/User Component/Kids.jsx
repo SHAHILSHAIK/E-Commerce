@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FaFilter, FaTimes } from "react-icons/fa"; // Import icons
+import { FaFilter, FaTimes } from "react-icons/fa"; 
 
 function Kids() {
   const [Items, setItems] = useState([]);
@@ -16,7 +16,7 @@ function Kids() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         const kidsItems = res.data.filter((item) => item.category === "Kid's");
         setItems(kidsItems);
@@ -39,7 +39,7 @@ function Kids() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Mobile Filter Button */}
+      
       <div className="p-4 md:hidden flex justify-end">
         <button
           className="bg-blue-600 text-white px-4 py-2 rounded flex items-center"
