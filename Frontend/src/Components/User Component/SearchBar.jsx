@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
 
-  // Fetch product suggestions based on user input
+  
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (query.length < 2) {
@@ -17,16 +17,16 @@ const SearchBar = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:3005/api/products`);
+        const response = await axios.get(`https://e-commerce-5a5i.onrender.com/api/products`);
 
-        // Filter products by name or category
+        
         const filteredProducts = response.data.filter(
           (product) =>
             product.name.toLowerCase().includes(query.toLowerCase()) ||
             product.category.toLowerCase().includes(query.toLowerCase())
         );
 
-        setSuggestions(filteredProducts.slice(0, 5)); // Show top 5 suggestions
+        setSuggestions(filteredProducts.slice(0, 5)); 
       } catch (error) {
         console.error("Error fetching suggestions:", error);
       }
@@ -35,7 +35,7 @@ const SearchBar = () => {
     fetchSuggestions();
   }, [query]);
 
-  // Navigate to the product listing page with search query
+ 
   const handleSearch = () => {
     if (query.trim() === "") return;
 
@@ -44,7 +44,7 @@ const SearchBar = () => {
     setQuery(""); // Clear input after search
   };
 
-  // Handle selecting a suggestion
+  
   const handleSelectSuggestion = (suggestion) => {
     setQuery(suggestion.name);
     setShowSuggestions(false);
