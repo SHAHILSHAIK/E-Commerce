@@ -21,7 +21,7 @@ export default function Update()
   useEffect(() => {
     function getdata() {
       axios
-        .get(`http://localhost:3005/api/products/${param.id}`)
+        .get(`https://e-commerce-5a5i.onrender.com/api/products/${param.id}`)
         .then((res) => {
           console.log(res.data)
           setCategory(res.data.category);
@@ -43,7 +43,7 @@ export default function Update()
     {
     e.preventDefault()
     axios
-      .put(`http://localhost:3005/api/products/${param.id}`, data)
+      .put(`https://e-commerce-5a5i.onrender.com/api/products/${param.id}`, data)
       .then((res) => {
         toast.success("Product updated successfully");
         navigate("/AdminHome/ViewItems");
