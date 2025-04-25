@@ -27,7 +27,7 @@ const UserLogin = () => {
       .then((res) => {
         console.log(res.data);
         toast.success(res.data.message);
-        navigator("/Home");
+        navigator("/");
         setError(false);
       })
       .catch((err) => {
@@ -81,7 +81,7 @@ const UserLogin = () => {
           </button>
         </div>
 
-        
+        {/* User Login Button */}
         <button
           onClick={userLogin}
           className="w-full bg-blue-600 py-2 text-white rounded-lg font-semibold mt-6 cursor-pointer hover:bg-blue-700 transition duration-300"
@@ -92,7 +92,7 @@ const UserLogin = () => {
           {error ? "Invalid Password or Email" : ""}
         </p>
 
-        
+        {/* User Sign Up Link */}
         <p className="text-gray-500 text-sm text-center mt-4">
           Don't have an account?{" "}
           <Link to="/UserSignUp" className="text-blue-600 font-semibold">
