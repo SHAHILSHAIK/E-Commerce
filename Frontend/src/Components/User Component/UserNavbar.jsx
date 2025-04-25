@@ -20,7 +20,7 @@ export default function UserNavbar() {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo (Left) */}
         <div className="flex items-center">
-          <Link to="/Home">
+          <Link to="/">
             <img
               className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-white"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfHsHcSRrBzAiYKjRuU6K7zzPNWZdtg6iP6Q&s"
@@ -31,7 +31,7 @@ export default function UserNavbar() {
 
         {/* Desktop Navigation (Center) */}
         <ul className="hidden md:flex items-center gap-6 sm:gap-10 text-sm sm:text-lg">
-          <Link to="/Home">
+          <Link to="/">
             <li className="relative group cursor-pointer hover:text-orange-500 transition duration-200 ease-in-out">
               Home
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -101,7 +101,7 @@ export default function UserNavbar() {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/Landing"
                     className="block px-4 py-2 hover:bg-gray-200"
                     onClick={() => setDropdownOpen(false)}
                   >
@@ -125,7 +125,7 @@ export default function UserNavbar() {
       {/* Mobile Navigation Menu */}
       {menuOpen && (
         <ul className="md:hidden flex flex-col items-center gap-4 pb-4 text-lg bg-blue-700 w-full">
-          <Link to="/Home" onClick={() => setMenuOpen(false)}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>
             <li className="cursor-pointer hover:text-orange-400 transition duration-200">
               Home
             </li>
@@ -184,7 +184,7 @@ export default function UserNavbar() {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/Landing"
                     className="block px-4 py-2 hover:bg-blue-600"
                     onClick={() => {
                       setMobileAccountOpen(false);
