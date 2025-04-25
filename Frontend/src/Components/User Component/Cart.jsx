@@ -16,7 +16,7 @@ const Cart = () => {
 
   
 
-  // Discount List
+ 
   const discounts = {
     "Men's": 20,
     "Women's": 25,
@@ -25,13 +25,13 @@ const Cart = () => {
     Furniture: 35,
   };
 
-  // Function to calculate the discounted price
+  
   const getDiscountedPrice = (price, category) => {
     const discount = discounts[category] || 0;
     return price - (price * discount) / 100;
   };
 
-  // Calculate subtotal with discount
+ 
   const subtotal = cart.reduce(
     (total, item) =>
       total + getDiscountedPrice(item.price, item.category) * item.quantity,
@@ -60,13 +60,12 @@ const Cart = () => {
               ) : (
                 <>
                   {cart.map((item) => {
-                    const discount = discounts[item.category] || 0; // Get discount percentage
+                    const discount = discounts[item.category] || 0; 
                     const discountedPrice = getDiscountedPrice(
                       item.price,
                       item.category
                     );
-                    const savings = item.price - discountedPrice; // Calculate how much the user is saving
-
+                    const savings = item.price - discountedPrice; 
                     return (
                       <div
                         key={item._id}
@@ -149,7 +148,7 @@ const Cart = () => {
             </div>
           </div>
 
-          {/* Order Summary */}
+         
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
