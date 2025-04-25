@@ -15,11 +15,11 @@ function Womens() {
     const [showMobileFilters, setShowMobileFilters] = useState(false);
   
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.products); // Get cart items from Redux
+  const cart = useSelector((state) => state.cart.products); 
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         const womensItems = res.data.filter(
           (item) => item.category === "Women's"
@@ -53,7 +53,7 @@ function Womens() {
               </button>
             </div>
       <div className="flex">
-        {/* Mobile Filter Sidebar */}
+       
                <div
                  className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-50 transition-transform transform ${
                    showMobileFilters ? "translate-x-0" : "-translate-x-full"
@@ -67,7 +67,7 @@ function Womens() {
                      </button>
                    </div>
        
-                   {/* Search Filter */}
+                   
                    <div className="mb-4 mt-4">
                      <h3 className="text-lg font-semibold">Search</h3>
                      <input
@@ -79,7 +79,7 @@ function Womens() {
                      />
                    </div>
        
-                   {/* Price Range Filter */}
+                  
                    <div className="mb-4">
                      <h3 className="text-lg font-semibold">Price Range</h3>
                      <input
@@ -93,7 +93,7 @@ function Womens() {
                      <p className="mt-1 font-semibold">Max Price: ₹{maxPrice}</p>
                    </div>
        
-                   {/* Sort by Price */}
+                   
                    <div className="mb-4">
                      <h3 className="text-lg font-semibold">Sort by Price</h3>
                      <select
@@ -116,7 +116,7 @@ function Womens() {
                  </div>
                </div>
        
-               {/* Tablet & Desktop Filters */}
+               
                <div className="hidden md:block w-1/4 min-h-screen bg-gray-200 p-6">
                  <h2 className="text-xl font-bold mb-4">Filters</h2>
                  <div className="mb-4">
@@ -169,7 +169,7 @@ function Womens() {
                   (cartItem) => cartItem.id === item.id
                 );
 
-                // Apply 20% discount for women's products
+                
                 const discountPercent = 20;
                 const discountedPrice =
                   item.price - (item.price * discountPercent) / 100;
