@@ -9,27 +9,27 @@ export default function ViewItems() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedImage, setSelectedImage] = useState(null); // State for image modal
+  const [selectedImage, setSelectedImage] = useState(null); 
 
   const navigate = useNavigate();
 
-  // Fetch products from the backend
+ 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         setProducts(res.data);
-        setFilteredProducts(res.data); // Initially show all products
+        setFilteredProducts(res.data); 
       })
       .catch(() => {
         toast.error("Failed to fetch products");
       });
   }, []);
 
-  // Delete a product
+ 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3005/api/products/${id}`)
+      .delete(`https://e-commerce-5a5i.onrender.com/api/products/${id}`)
       .then(() => {
         toast.success("Product deleted successfully", {
           position: "top-center",
@@ -46,7 +46,7 @@ export default function ViewItems() {
       });
   };
 
-  // Navigate to update page
+  
   const updateData = (id) => {
     navigate(`/AdminHome/Update/${id}`);
   };
@@ -63,7 +63,7 @@ export default function ViewItems() {
     }
   };
 
-  // Categories for filtering
+ 
   const categories = [
     { id: "All", name: "All" },
     { id: "Men's", name: "Men's" },
