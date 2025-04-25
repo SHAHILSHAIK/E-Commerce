@@ -14,16 +14,16 @@ const Address = () => {
 
   const data = { DoorNo, State, Street, Pincode, City, District };
 
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); 
 
   function handleSubmit(e) {
-    e.preventDefault(); // Prevent page reload on form submit
+    e.preventDefault(); 
 
     axios
-      .post("http://localhost:3005/api/user/address", data)
+      .post("https://e-commerce-5a5i.onrender.com/api/user/address", data)
       .then((res) => {
         console.log(res.data);
-        // After successful address submission, navigate to OrderPlaced page
+        
         navigate("/order-placed");
       })
       .catch((err) => {
