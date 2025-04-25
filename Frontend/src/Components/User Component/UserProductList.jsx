@@ -9,11 +9,11 @@ export default function UserProductList() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.products); // Redux cart state
+  const cart = useSelector((state) => state.cart.products); 
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => setItems(res.data))
       .catch(() => console.log("Failed to fetch products"));
   }, []);
@@ -46,7 +46,7 @@ export default function UserProductList() {
         Our Products
       </h1>
 
-      {/* Category Filter */}
+     
       <div className="flex flex-wrap gap-4 justify-center mb-8">
         {categories.map((category) => (
           <button
@@ -63,7 +63,7 @@ export default function UserProductList() {
         ))}
       </div>
 
-      {/* Product List */}
+      
       {filteredProducts.length > 0 ? (
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {(() => {
@@ -74,10 +74,10 @@ export default function UserProductList() {
               return acc;
             }, {});
 
-            // Step 2: Get categories in order
+            
             const categoryOrder = Object.keys(categoryGroups);
 
-            // Step 3: Distribute products in a cyclic order
+            
             const orderedProducts = [];
             let index = 0;
             let added = true;
@@ -93,7 +93,7 @@ export default function UserProductList() {
               index++;
             }
 
-            // Step 4: Render products
+           
             return orderedProducts.map((item) => {
               const isInCart = cart.some((p) => p._id === item._id);
 
@@ -111,8 +111,7 @@ export default function UserProductList() {
                   <div
                     key={item._id}
                     className="bg-white rounded-lg shadow-lg p-5 hover:shadow-xl transition duration-300 flex flex-col items-center"
-                  >
-                    {/* 🖼️ Image */}
+                  > {/* 🖼️ Image */}
                     <div className="w-full h-60 flex items-center justify-center">
                       <img
                         src={item.image || "https://via.placeholder.com/200"}
@@ -121,7 +120,7 @@ export default function UserProductList() {
                       />
                     </div>
 
-                    {/* 📌 Product Name & Description */}
+                   
                     <h4 className="text-xl font-semibold mt-3 text-gray-800 text-center">
                       {item.name}
                     </h4>
@@ -129,7 +128,7 @@ export default function UserProductList() {
                       {item.description}
                     </p>
 
-                    {/* 💰 Price & Discount Section */}
+                    
                     <div className="mt-2">
                       {discountPercent > 0 ? (
                         <h4 className="text-lg font-bold text-red-500">
@@ -148,12 +147,12 @@ export default function UserProductList() {
                       )}
                     </div>
 
-                    {/* 🏷️ Category */}
+                    
                     <h1 className="text-sm text-gray-500 mt-1">
                       {item.category}
                     </h1>
 
-                    {/* 🛒 Add to Cart Button */}
+                    
                     <button className="mt-4 px-5 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition duration-300">
                       View Details
                     </button>
