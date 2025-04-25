@@ -1,24 +1,21 @@
-"use client"; // Only needed if using Next.js App Router
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCartPlus, FaUserCircle } from "react-icons/fa";
-import { IoMenu, IoClose } from "react-icons/io5"; // Icons for mobile menu
-import { useSelector } from "react-redux"; // Import useSelector
+import { IoMenu, IoClose } from "react-icons/io5"; 
+import { useSelector } from "react-redux"; 
 
 export default function UserNavbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // Mobile menu state
-  const [mobileAccountOpen, setMobileAccountOpen] = useState(false); // Mobile account dropdown state
+  const [menuOpen, setMenuOpen] = useState(false); 
+  const [mobileAccountOpen, setMobileAccountOpen] = useState(false); 
 
-  // Get cart items from Redux
   const cartItems = useSelector((state) => state.cart.products);
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0); // Sum of all product quantities
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0); 
 
   return (
     <div className="bg-blue-600 text-white w-full">
       <div className="flex items-center justify-between px-6 py-4">
-        {/* Logo (Left) */}
         <div className="flex items-center">
           <Link to="/">
             <img
@@ -29,7 +26,6 @@ export default function UserNavbar() {
           </Link>
         </div>
 
-        {/* Desktop Navigation (Center) */}
         <ul className="hidden md:flex items-center gap-6 sm:gap-10 text-sm sm:text-lg">
           <Link to="/">
             <li className="relative group cursor-pointer hover:text-orange-500 transition duration-200 ease-in-out">
@@ -57,9 +53,7 @@ export default function UserNavbar() {
           </Link>
         </ul>
 
-        {/* Cart & Account (Right - Desktop) */}
         <div className="flex items-center gap-6">
-          {/* Cart Icon */}
           <Link to="/Cart" className="relative">
             <FaCartPlus className="text-2xl sm:text-3xl hover:text-orange-500 transition duration-200 ease-in-out" />
             {cartCount > 0 && (
@@ -69,7 +63,6 @@ export default function UserNavbar() {
             )}
           </Link>
 
-          {/* Account Dropdown (Only on Desktop) */}
           <div className="relative hidden md:block z-10 ">
             <button
               className="flex items-center gap-1 hover:text-orange-500 transition"
@@ -103,7 +96,34 @@ export default function UserNavbar() {
                   <Link
                     to="/Landing"
                     className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={() => setDropdownOpen(false)}
+                    onClick={() => {
+                      setMobileAccountOpen(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Landing"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                    onClick={() => {
+                      setMobileAccountOpen(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Admin
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Landing"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                    onClick={() => {
+                      setMobileAccountOpen(false);
+                      setMenuOpen(false);
+                    }}
                   >
                     Logout
                   </Link>
@@ -112,7 +132,6 @@ export default function UserNavbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-2xl"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -122,7 +141,6 @@ export default function UserNavbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {menuOpen && (
         <ul className="md:hidden flex flex-col items-center gap-4 pb-4 text-lg bg-blue-700 w-full">
           <Link to="/" onClick={() => setMenuOpen(false)}>
@@ -146,7 +164,6 @@ export default function UserNavbar() {
             </li>
           </Link>
 
-          {/* Account Section inside Mobile Menu */}
           <li
             className="cursor-pointer flex flex-col items-center hover:text-orange-400 transition duration-200"
             onClick={() => setMobileAccountOpen(!mobileAccountOpen)}
@@ -180,6 +197,30 @@ export default function UserNavbar() {
                     }}
                   >
                     Orders
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Landing"
+                    className="block px-4 py-2 hover:bg-blue-600"
+                    onClick={() => {
+                      setMobileAccountOpen(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Landing"
+                    className="block px-4 py-2 hover:bg-blue-600"
+                    onClick={() => {
+                      setMobileAccountOpen(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Admin
                   </Link>
                 </li>
                 <li>
