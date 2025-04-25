@@ -15,15 +15,15 @@ function SignUp() {
 
   function postdata() {
     axios
-      .post("http://localhost:3005/api/admin/signup", data)
+      .post("https://e-commerce-5a5i.onrender.com/api/admin/signup", data)
       .then((res) => {
-        console.log(res.data); // ✅ Logs backend response
-        toast.success(res.data.message); // ✅ Shows success toast
-        navigator("/"); // ✅ Redirects to admin home
+        console.log(res.data);
+        toast.success(res.data.message); 
+        navigator("/"); 
       })
       .catch((err) => {
-        toast.error(err.response?.data?.message || err.message); // ✅ Show meaningful error message
-        console.log(err.response); // ✅ Debugging info
+        toast.error(err.response?.data?.message || err.message); 
+        console.log(err.response); 
       });
   }
 
