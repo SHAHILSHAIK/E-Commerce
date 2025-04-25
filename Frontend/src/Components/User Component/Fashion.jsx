@@ -33,7 +33,7 @@ const categories = [
   },
 ];
 
-// Discount List
+
 const discountList = [
   { id: "Men's", discount: 20 },
   { id: "Women's", discount: 25 },
@@ -54,9 +54,9 @@ const Fashion = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
-        // Filter only Men's, Women's, and Kid's products
+        
         const filteredProducts = res.data.filter(
           (product) =>
             product.category === "Men's" ||
@@ -78,7 +78,7 @@ const Fashion = () => {
   const isWomensPage = location.pathname === "/Fashion/Womens";
   const isKidsPage = location.pathname === "/Fashion/Kids";
 
-  // Main Fashion Page Filters
+ 
   const filteredItems = isFashionMainPage
     ? products.filter(
         (product) =>
@@ -86,9 +86,9 @@ const Fashion = () => {
           product.price <= maxPrice &&
           (category === "All" || product.category === category)
       )
-    : products; // No filtering if on category pages
+    : products; 
 
-  // Category-Specific Filters
+ 
   const mensFilteredItems = isMensPage
     ? products.filter((product) => product.category === "Men's")
     : filteredItems;
