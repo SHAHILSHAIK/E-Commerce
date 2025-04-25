@@ -7,11 +7,11 @@ const Dashboard = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoryData, setCategoryData] = useState({});
-  const [selectedImage, setSelectedImage] = useState(null); // State to track clicked image
+  const [selectedImage, setSelectedImage] = useState(null); 
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((response) => {
         const products = response.data;
         const categoryCounts = {};
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
