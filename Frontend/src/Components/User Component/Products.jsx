@@ -14,7 +14,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3005/api/products");
+        const response = await axios.get("https://e-commerce-5a5i.onrender.com/api/products");
         setProducts(response.data);
 
         if (query) {
