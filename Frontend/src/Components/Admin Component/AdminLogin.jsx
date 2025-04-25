@@ -23,12 +23,11 @@ function AdminLogin() {
         console.log(res.data);
         toast.success(res.data.message);
         navigator("/AdminHome");
-        setError(false)
-
+        setError(false);
       })
       .catch((err) => {
         console.error(err.response);
-        setError(true)
+        setError(true);
       });
   }
 
@@ -46,7 +45,6 @@ function AdminLogin() {
           Admin Login
         </p>
 
-        {/* Admin Email Input */}
         <label htmlFor="adminEmail" className="block text-gray-700 mb-2">
           Admin Email:
         </label>
@@ -59,7 +57,6 @@ function AdminLogin() {
           required
         />
 
-        {/* Admin Password Input */}
         <label htmlFor="adminPassword" className="block text-gray-700 mb-2">
           Admin Password:
         </label>
@@ -85,7 +82,6 @@ function AdminLogin() {
           </button>
         </div>
 
-        {/* Admin Login Button */}
         <button
           onClick={AdminLogin}
           className="w-full bg-blue-600 py-2 text-white rounded-lg font-semibold mt-6 cursor-pointer hover:bg-blue-700 transition duration-300"
