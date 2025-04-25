@@ -19,16 +19,16 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null); // State for image modal
+  const [selectedImage, setSelectedImage] = useState(null); 
 
-  // 🛒 Get Cart Products from Redux
+
   const cartItems = useSelector((state) => state.cart.products) || [];
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3005/api/products/${id}`
+          `https://e-commerce-5a5i.onrender.com/api/products/${id}`
         );
         setProduct(response.data);
       } catch (error) {
@@ -41,7 +41,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:3005/api/products`);
+        const response = await axios.get(`https://e-commerce-5a5i.onrender.com/api/products`);
         const related = response.data.filter(
           (item) =>
             item.category === product?.category && item._id !== product?._id
@@ -59,7 +59,7 @@ const ProductDetail = () => {
     return <div className="text-center mt-10">Loading...</div>;
   }
 
-  // ✅ Get Discount for the Category
+ 
   const categoryDiscount =
     discountList.find((item) => item.id === product.category)?.discount || 0;
 
@@ -68,14 +68,14 @@ const ProductDetail = () => {
       ? product.price - (product.price * categoryDiscount) / 100
       : product.price;
 
-  // 🛒 Check if the product is already in the cart
+  
   const isProductInCart = cartItems.some((item) => item._id === product._id);
 
   return (
     <div className="min-h-screen">
       <UserNavbar />
       <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10 flex flex-col md:flex-row gap-8">
-        {/* Product Image */}
+        
         <div className="w-full md:w-1/2">
           <div
             className="flex justify-center mb-4  cursor-pointer"
@@ -89,7 +89,7 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        {/* Product Details */}
+        
         <div className="w-full md:w-1/2 flex flex-col justify-between">
           <div>
             <h2 className="text-3xl font-bold text-gray-800">{product.name}</h2>
@@ -98,7 +98,7 @@ const ProductDetail = () => {
             </p>
             <p className="text-gray-700 mt-4 text-lg">{product.description}</p>
 
-            {/* ✅ Discounted Price Display */}
+            
             <div className="mt-6">
               {categoryDiscount > 0 ? (
                 <div>
@@ -120,13 +120,13 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* Add to Cart Button */}
+          
           <button
             onClick={() => dispatch(addToCart(product))}
-            disabled={isProductInCart} // ✅ Disable if product is already in cart
+            disabled={isProductInCart} 
             className={`mt-6 w-full py-3 text-lg font-semibold rounded-lg transition ${
               isProductInCart
-                ? "bg-gray-400 cursor-not-allowed" // ✅ Disabled style
+                ? "bg-gray-400 cursor-not-allowed" 
                 : "bg-blue-600 hover:bg-blue-700 text-white"
             }`}
           >
@@ -135,7 +135,7 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      {/* Related Products Section */}
+     
       {relatedProducts.length > 0 && (
         <div className="mt-16 px-10 py-7 bg-gray-100">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
@@ -143,7 +143,7 @@ const ProductDetail = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {relatedProducts.map((item) => {
-              // ✅ Apply category-based discount to related products
+             
               const relatedCategoryDiscount =
                 discountList.find((d) => d.id === item.category)?.discount || 0;
               const relatedDiscountedPrice =
@@ -161,7 +161,7 @@ const ProductDetail = () => {
                       </span>
                     )}
 
-                    {/* Product Image */}
+                   
                     <img
                       src={item.image}
                       alt={item.name}
@@ -173,7 +173,7 @@ const ProductDetail = () => {
                       {item.name}
                     </h3>
 
-                    {/* Pricing with Discount Styling */}
+                   
                     <div className="mt-2 text-center">
                       {relatedCategoryDiscount > 0 ? (
                         <>
