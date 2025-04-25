@@ -14,15 +14,15 @@ const SignUp = () => {
 
   const postData = () => {
     axios
-      .post("http://localhost:3005/api/user/signup", data)
+      .post("https://e-commerce-5a5i.onrender.com/api/user/signup", data)
       .then((res) => {
         console.log(res.data); 
         toast.success(res.data.message); 
         navigator("/Home");
       })
       .catch((err) => {
-        console.log(err.response); // Log the full error response for debugging
-        toast.error(err.response?.data?.message || err.message); // Show backend message or fallback
+        console.log(err.response); 
+        toast.error(err.response?.data?.message || err.message); 
       });
   };
 
@@ -37,7 +37,7 @@ const SignUp = () => {
           User Sign Up
         </p>
 
-        {/* Full Name Input */}
+        
         <label htmlFor="name" className="block text-gray-700 mb-2">
           Full Name:
         </label>
@@ -50,7 +50,7 @@ const SignUp = () => {
           required
         />
 
-        {/* Email Input */}
+       
         <label htmlFor="email" className="block text-gray-700 mb-2">
           Email:
         </label>
@@ -63,7 +63,7 @@ const SignUp = () => {
           required
         />
 
-        {/* Password Input */}
+        
         <label htmlFor="password" className="block text-gray-700 mb-2">
           Password:
         </label>
@@ -76,7 +76,7 @@ const SignUp = () => {
           required
         />
 
-        {/* Submit Button */}
+        
         <button
           type="submit"
           className="w-full bg-blue-600 py-2 text-white rounded-sm font-semibold mt-6 cursor-pointer hover:bg-blue-700 transition duration-300"
@@ -85,7 +85,7 @@ const SignUp = () => {
           Create Account
         </button>
 
-        {/* Login Link */}
+        
         <p className="text-center text-gray-500 text-sm mt-4">
           Already have an account?{" "}
           <Link to="/" className="text-blue-600 font-semibold">
