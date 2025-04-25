@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FaFilter, FaTimes } from "react-icons/fa"; // Import icons
+import { FaFilter, FaTimes } from "react-icons/fa";
 
 function Mens() {
   const [Items, setItems] = useState([]);
@@ -16,7 +16,7 @@ function Mens() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         const mensItems = res.data.filter((item) => item.category === "Men's");
         setItems(mensItems);
@@ -24,7 +24,7 @@ function Mens() {
       .catch((err) => console.log(err));
   }, []);
 
-  // Filter Logic
+  
   const filteredItems = Items.filter(
     (item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -48,9 +48,9 @@ function Mens() {
           <FaFilter className="mr-2" /> Filters
         </button>
       </div>
-      {/* Page Layout: Sidebar + Products */}
+      
       <div className="flex">
-        {/* Mobile Filter Sidebar */}
+        
         <div
           className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-50 transition-transform transform ${
             showMobileFilters ? "translate-x-0" : "-translate-x-full"
