@@ -20,7 +20,7 @@ function Furn() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("https://e-commerce-5a5i.onrender.com/api/products")
       .then((res) => {
         const furnitureProducts = res.data.filter(
           (product) => product.category === "Furniture"
@@ -30,7 +30,7 @@ function Furn() {
       .catch((err) => console.log(err));
   }, []);
 
-  // Filter Logic
+  
   const filteredProducts = products.filter(
     (product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
