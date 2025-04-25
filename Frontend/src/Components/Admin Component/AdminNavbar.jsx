@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IoMdLogOut } from "react-icons/io";
-import { BiSearch } from "react-icons/bi"; // Search icon
-import SearchBar from "../User Component/SearchBar";
 import { Tooltip } from "react-tooltip";
 
 export default function AdminNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); // Search state
+  const [searchTerm, setSearchTerm] = useState(""); 
 
   const handleSearch = () => {
     console.log("Searching for:", searchTerm);
@@ -17,7 +15,6 @@ export default function AdminNavbar() {
   return (
     <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 fixed w-full z-50">
       <header className="flex items-center justify-between w-full h-[80px] px-6 md:px-10 text-white">
-        {/* Logo */}
         <div className="flex items-center">
           <Link to="/AdminHome/">
             <img
@@ -28,7 +25,6 @@ export default function AdminNavbar() {
           </Link>
         </div>
 
-        {/* Centered Navbar Links */}
         <ul className="hidden md:flex items-center gap-6 sm:gap-10 text-sm sm:text-lg mx-auto">
           <Link to="/AdminHome/">
             <li className="relative group cursor-pointer hover:text-orange-500 transition duration-200 ease-in-out">
@@ -50,14 +46,12 @@ export default function AdminNavbar() {
           </Link>
         </ul>
 
-        {/* Desktop Logout Icon */}
-        <Link to="/" className="hidden md:flex">
+        <Link to="/Landing" className="hidden md:flex">
           <li className="cursor-pointer hover:text-red-500 transition duration-200 ease-in-out flex items-center">
             <IoMdLogOut size={30} />
           </li>
         </Link>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden"
           data-tooltip-id="logout-tooltip"
@@ -71,7 +65,6 @@ export default function AdminNavbar() {
         </Tooltip>
       </header>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden flex flex-col items-center bg-blue-600 py-4 space-y-4 text-white text-lg">
           <Link to="/AdminHome/" onClick={() => setMenuOpen(false)}>
@@ -83,7 +76,7 @@ export default function AdminNavbar() {
           <Link to="/AdminHome/AddItems" onClick={() => setMenuOpen(false)}>
             Add Products
           </Link>
-          <Link to="/">
+          <Link to="/Landing">
             <IoMdLogOut size={30} />
           </Link>
         </div>
